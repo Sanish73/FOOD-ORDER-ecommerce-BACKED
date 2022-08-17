@@ -25,6 +25,11 @@
     text-align: center;
 }
 
+.clear-fix{
+    float: none;
+    clear: both;
+
+}
 
 
 
@@ -53,7 +58,7 @@
 }
 
 .menu ul li a:hover {
-    color: #fa983a;
+    color: #f98315;
 }
 
 
@@ -63,13 +68,15 @@
 .main-content{
     /* margin: 1% 0; */
     background-color: #f1f2f6;
+    padding: 3% 0;
 }
 
 .col-4{
     background-color: white;
     margin: 1%;
     padding: 2%;
-    width: 20%;
+    width: 19%;
+    float: left;/*it floates the slected into left side and it makes error beacause the downward codes also floats left so we have to use clearfix*/
 }
 
 
