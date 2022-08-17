@@ -36,7 +36,7 @@
     <!-- main content section starts -->
     <div class="main-content">
         <div class="wrapper">
-            menu goes here
+        sanish is a good boy
         </div>
 
     </div>
