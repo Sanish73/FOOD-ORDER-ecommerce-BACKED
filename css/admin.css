@@ -25,20 +25,74 @@
     text-align: center;
 }
 
-.clear-fix{
+.clear-fix {
     float: none;
     clear: both;
 
 }
 
+.tbl-full {
+    width: 100%;
+}
+
+.tbl-30{
+    width: 30%;
+    /* background-color: red; */
+}
+
+table tr th {
+    border-bottom: 1px solid black;
+    padding: 1%;
+    text-align: left;
+}
+
+table tr td {
+    padding: 1%;
+}
+
+.btn-primary{
+    background-color: #1e90ff;
+    padding: 1%;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+}
+.btn-primary:hover{
+    background-color: #2742fa;
+}
 
 
+.btn-secondary{
+    background-color: #7bed9f;
+    padding: 1%;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    border-radius: 5px;
+}
+.btn-secondary:hover{
+    background-color: #2ed573;
+}
+
+.btn-danger{
+    background-color: #ff68b1;
+    padding: 1%;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+}
+.btn-danger:hover{
+    background-color: #ff4757;
+}
 
 
 /* ///////////////////css for MENU */
-.menu{
+.menu {
     border-bottom: 1px solid grey;
 }
+
 .menu ul {
     list-style-type: none;
     /*yesley chai link ko dot hataidinxa*/
@@ -63,20 +117,22 @@
 
 
 
+
 /* //////////////////css for Main content */
 
-.main-content{
+.main-content {
     /* margin: 1% 0; */
     background-color: #f1f2f6;
     padding: 3% 0;
 }
 
-.col-4{
+.col-4 {
     background-color: white;
     margin: 1%;
     padding: 2%;
     width: 19%;
-    float: left;/*it floates the slected into left side and it makes error beacause the downward codes also floats left so we have to use clearfix*/
+    float: left;
+    /*it floates the slected into left side and it makes error beacause the downward codes also floats left so we have to use clearfix*/
 }
 
 

@@ -2,18 +2,11 @@
 <!-- menu section end -->
 
 
-
-
-
-
-<!-- main content section starts -->
 <div class="main-content">
     <div class="wrapper">
-        <h1>Manage Admin</h1>
-
-    <!-- button to add admin -->
-    <br><br>
-   <a href="add-admin.php" class="btn-primary">Add Admin</a>
+        <h1>Manage Food</h1>
+        <br><br>
+   <a href="#" class="btn-primary">Add Food</a>
    <br><br><br>
         <table class="tbl-full">
             <tr>
@@ -60,6 +53,5 @@
 
 
 
-
-<!-- footer section starts -->
+ <!-- footer section starts -->
 <?php include('partials/footer.php') ?>

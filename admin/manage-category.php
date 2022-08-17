@@ -2,19 +2,12 @@
 <!-- menu section end -->
 
 
-
-
-
-
-<!-- main content section starts -->
 <div class="main-content">
     <div class="wrapper">
-        <h1>Manage Admin</h1>
-
-    <!-- button to add admin -->
-    <br><br>
-   <a href="add-admin.php" class="btn-primary">Add Admin</a>
-   <br><br><br>
+        <h1>Manage Category</h1>
+        <br><br>
+        <a href="#" class="btn-primary">Add Category</a>
+        <br><br><br>
         <table class="tbl-full">
             <tr>
                 <th>S.N</th>
@@ -27,8 +20,8 @@
                 <td>Vijay </td>
                 <td>Vijay th</td>
                 <td>
-                <a href="#" class="btn-secondary">Update Admin</a>
-                <a href="#" class="btn-danger">Delete Admin</a>
+                    <a href="#" class="btn-secondary">Update Admin</a>
+                    <a href="#" class="btn-danger">Delete Admin</a>
                 </td>
             </tr>
 
@@ -37,8 +30,8 @@
                 <td>Vijay </td>
                 <td>Vijay th</td>
                 <td>
-                <a href="#" class="btn-secondary">Update Admin</a>
-                <a href="#" class="btn-danger">Delete Admin</a>
+                    <a href="#" class="btn-secondary">Update Admin</a>
+                    <a href="#" class="btn-danger">Delete Admin</a>
                 </td>
             </tr>
 
@@ -47,8 +40,8 @@
                 <td>Vijay </td>
                 <td>Vijay th</td>
                 <td>
-                <a href="#" class="btn-secondary">Update Admin</a>
-                <a href="#" class="btn-danger">Delete Admin</a>
+                    <a href="#" class="btn-secondary">Update Admin</a>
+                    <a href="#" class="btn-danger">Delete Admin</a>
                 </td>
             </tr>
 
@@ -56,7 +49,6 @@
     </div>
 
 </div>
-
 
 
 
