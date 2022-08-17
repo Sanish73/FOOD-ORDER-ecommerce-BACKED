@@ -13,7 +13,7 @@
 }
 
 .wrapper {
-    border: 1px solid black;
+    /* border: 1px solid black; */
     padding: 1%;
     width: 80%;
     margin: 0 auto;
@@ -31,6 +31,9 @@
 
 
 /* ///////////////////css for MENU */
+.menu{
+    border-bottom: 1px solid grey;
+}
 .menu ul {
     list-style-type: none;
     /*yesley chai link ko dot hataidinxa*/
@@ -46,7 +49,7 @@
     text-decoration: none;
     /*this hides the link line*/
     font-weight: bold;
-    color: #d1ccc0;
+    color: #f3c89c;
 }
 
 .menu ul li a:hover {
@@ -58,7 +61,15 @@
 /* //////////////////css for Main content */
 
 .main-content{
-    margin: 1% 0;
+    /* margin: 1% 0; */
+    background-color: #f1f2f6;
+}
+
+.col-4{
+    background-color: white;
+    margin: 1%;
+    padding: 2%;
+    width: 20%;
 }
 
 

@@ -18,31 +18,35 @@
     <!-- menu section strarts -->
     <div class="menu text-center">
         <div class="wrapper">
-           <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Admin</a></li>
-            <li><a href="#">Category</a></li>
-            <li><a href="#">Food</a></li>
-            <li><a href="#">Order</a></li>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Admin</a></li>
+                <li><a href="#">Category</a></li>
+                <li><a href="#">Food</a></li>
+                <li><a href="#">Order</a></li>
 
-           </ul>
+            </ul>
         </div>
 
     </div>
     <!-- menu section end -->
 
-<!-- ///////////////////////////////////////////////////////////////////////////////////////////// -->
+    <!-- ///////////////////////////////////////////////////////////////////////////////////////////// -->
 
     <!-- main content section starts -->
     <div class="main-content">
         <div class="wrapper">
-        nothng
+            <strong>Dashboard</strong>
+            <div class="col-4">
+                <h1>5</h1>
+                Categories
+            </div>
         </div>
 
     </div>
     <!-- main content section ends -->
 
-<!-- ///////////////////////////////////////////////////////////////////////////////////////////// -->
+    <!-- ///////////////////////////////////////////////////////////////////////////////////////////// -->
     <!-- footer section starts -->
     <div class="footer">
         <div class="wrapper">
