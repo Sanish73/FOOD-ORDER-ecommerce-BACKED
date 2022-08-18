@@ -5,10 +5,10 @@
 
 
 <div class="main-content">
-        <div class="wrapper">
-            <h1>Add Admin</h1>
-    <br><br>
-        <form action="" method="POST">
+    <div class="wrapper">
+        <h1>Add Admin</h1>
+        <br><br>
+        <form name="login" action="" method="POST">
             <table class="tbl-30">
                 <tr>
                     <td>Full Name:</td>
@@ -38,33 +38,56 @@
             </table>
 
         </form>
-        </div>
+    </div>
 </div>
 
 <!-- footer section starts -->
 <?php include('partials/footer.php') ?>
 
+<!-- --------------javascript for validation------------- -->
+<script>
+    validation(){
+        var fullName = document.login.fullname.value;
+
+        alert (fullName);
+    };
+</script>
 
 
+
+<!-- --------------------------PHP---------------------------- -->
 <?php
 
-    if(isset($_POST['submit']))//button clicked
-    {
-                //now getting the value from the form;
+if (isset($_POST['submit'])) //button clicked
+{
+    //now getting the value from the form;
 
-        $full_name =$_POST['fullname'];
-        $user_name = $_POST['username'];
-        $password = md5($_POST['password']);
+    $full_name = $_POST['fullname'];
+    $user_name = $_POST['username'];
+    $password = md5($_POST['password']);
 
 
-       
-        $sql = "INSERT INTO tbl_admin SET 
+
+    $sql = "INSERT INTO tbl_admin SET 
         full_name='$full_name',
          username='$user_name',
          password='$password'";
 
-        $qry = mysqli_query($conn, $sql) or die("query is worng");
-        
-     
+    $qry = mysqli_query($conn, $sql) or die("query is worng");
+
+    if ($qry == TRUE) {
+        //now we create the variable to display message
+        $_SESSION['add'] = "Sucessfully Added";
+        //after added we redirect to back page so
+
+        header('location:' . SITEURL . 'admin/manage-admin.php');
+    } else {
+
+        //now we create the variable to display message
+        $_SESSION['add'] = "Failed to Add";
+        //after added we redirect to back page so
+
+        header('location:' . SITEURL . 'admin/add-admin.php');
     }
+}
 ?>
