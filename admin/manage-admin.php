@@ -42,12 +42,13 @@
             if ($qry) {
 
                 $count = mysqli_num_rows($qry);
+                $SN =1;
 
                 if ($count > 0) {
 
 
 
-                    while ($row = mysqli_fetch_array($qry)) { //here i got UNDEFINED ARRAY KEY beacause i wrote "mysqli_fetch_row but i should have write array..
+                    while ($row = mysqli_fetch_array($qry)) { //here i got UNDEFINED ARRAY KEY beacause i forgot to write $count 
                         $ID = $row['id'];
                         $FULLNAME = $row['full_name'];
                         $USERNAME = $row['username'];
@@ -55,7 +56,8 @@
 
             ?>
                         <tr>
-                            <td><?php echo ($ID); ?></td>
+                            <!-- this logic is great for serial S.N even though in database if the data starts from 90 -->
+                            <td><?php echo ($SN++); ?></td>
                             <td><?php echo ($FULLNAME); ?></td>
                             <td><?php echo ($USERNAME); ?></td>
                             <td>
