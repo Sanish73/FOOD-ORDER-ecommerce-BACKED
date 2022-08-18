@@ -23,24 +23,6 @@
         <br><br><br>
         <a href="add-admin.php" class="btn-primary">Add Admin</a>
         <br><br><br>
-        <!-- ---------------PHP for table value--------------- -->
-        <?php
-        $sql = "SELECT * FROM tbl_admin";
-
-        $query = mysqli_query($conn, $sql) or die("data Error!!!");
-
-        if ($query) {
-            $row = mysqli_fetch_row($query);
-
-            while ($row) {
-                $ID = $row['id'];
-                $FULLNAME = $row['full_name'];
-                $USERNAME = $row['username'];
-                $PASSWORD = $row['password'];
-            }
-        }
-        ?>
-        <!-- --------------------end of php---------------------------- -->
         <table class="tbl-full">
             <tr>
                 <th>S.N</th>
@@ -48,35 +30,49 @@
                 <th>User Name</th>
                 <th>Actions</th>
             </tr>
-            <tr>
-                <td><?php echo ($ID); ?></td>
-                <td><?php echo ($FULLNAME); ?>/td>
-                <td><?php echo ($USERNAME); ?></td>
-                <td>
-                    <a href="#" class="btn-secondary">Update Admin</a>
-                    <a href="#" class="btn-danger">Delete Admin</a>
-                </td>
-            </tr>
+            <!-- ---------------PHP for table value--------------- -->
+            <?php
+            $sql = "SELECT * FROM tbl_admin";
 
-            <tr>
-                <td>1.</td>
-                <td>Vijay </td>
-                <td>Vijay th</td>
-                <td>
-                    <a href="#" class="btn-secondary">Update Admin</a>
-                    <a href="#" class="btn-danger">Delete Admin</a>
-                </td>
-            </tr>
+            $qry = mysqli_query($conn, $sql) or die("data Error!!!");
 
-            <tr>
-                <td>1.</td>
-                <td>Vijay </td>
-                <td>Vijay th</td>
-                <td>
-                    <a href="#" class="btn-secondary">Update Admin</a>
-                    <a href="#" class="btn-danger">Delete Admin</a>
-                </td>
-            </tr>
+
+
+
+            if ($qry) {
+
+                $count = mysqli_num_rows($qry);
+
+                if ($count > 0) {
+
+
+
+                    while ($row = mysqli_fetch_array($qry)) { //here i got UNDEFINED ARRAY KEY beacause i wrote "mysqli_fetch_row but i should have write array..
+                        $ID = $row['id'];
+                        $FULLNAME = $row['full_name'];
+                        $USERNAME = $row['username'];
+                        $PASSWORD = $row['password'];
+
+            ?>
+                        <tr>
+                            <td><?php echo ($ID); ?></td>
+                            <td><?php echo ($FULLNAME); ?></td>
+                            <td><?php echo ($USERNAME); ?></td>
+                            <td>
+                                <a href="#" class="btn-secondary">Update Admin</a>
+                                <a href="#" class="btn-danger">Delete Admin</a>
+                            </td>
+                        </tr>
+            <?php
+                    }
+                }
+            }
+            ?>
+            <!-- --------------------end of php---------------------------- -->
+
+
+
+
 
         </table>
     </div>
