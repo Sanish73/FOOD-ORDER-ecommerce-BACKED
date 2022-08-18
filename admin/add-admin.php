@@ -8,7 +8,7 @@
     <div class="wrapper">
         <h1>Add Admin</h1>
         <br><br>
-        <form name="login" action="" method="POST">
+        <form name="login" action="" method="POST" onsubmit="validation()">
             <table class="tbl-30">
                 <tr>
                     <td>Full Name:</td>
@@ -45,17 +45,34 @@
 <?php include('partials/footer.php') ?>
 
 <!-- --------------javascript for validation------------- -->
-<script>
-    validation(){
+<!-- <script>
+    function validation() {
         var fullName = document.login.fullname.value;
+        var userName = document.login.username.value;
+        var passWord = document.login.password.value;
 
-        alert (fullName);
+        if (fullName == "" && userName == "" && passWord == "") {
+            alert("All Fills are Required.")
+        } else if (fullName == "") {
+
+            alert("Fillup Your Name.")
+        } else if (userName == "") {
+
+            alert("Fillup Your UserName.")
+        } else if (passWord == "") {
+
+            alert("Fillup Your Password.")
+        } else if(!fullName == "" && !userName == "" && !passWord == "") {
+        
+        }
+
     };
-</script>
+</script> -->
 
 
 
 <!-- --------------------------PHP---------------------------- -->
+
 <?php
 
 if (isset($_POST['submit'])) //button clicked
@@ -67,27 +84,32 @@ if (isset($_POST['submit'])) //button clicked
     $password = md5($_POST['password']);
 
 
-
-    $sql = "INSERT INTO tbl_admin SET 
+    if (empty($full_name) && empty($user_name) && empty($password)) {
+    } else if (empty($full_name)) {
+    } else if (empty($user_name)) {
+    } else if (empty($password)) {
+    } else {
+        $sql = "INSERT INTO tbl_admin SET 
         full_name='$full_name',
          username='$user_name',
          password='$password'";
 
-    $qry = mysqli_query($conn, $sql) or die("query is worng");
+        $qry = mysqli_query($conn, $sql) or die("query is worng");
 
-    if ($qry == TRUE) {
-        //now we create the variable to display message
-        $_SESSION['add'] = "Sucessfully Added";
-        //after added we redirect to back page so
+        if ($qry == TRUE) {
+            //now we create the variable to display message
+            $_SESSION['add'] = "Sucessfully Added";
+            //after added we redirect to back page so
 
-        header('location:' . SITEURL . 'admin/manage-admin.php');
-    } else {
+            header('location:' . SITEURL . 'admin/manage-admin.php');
+        } else {
 
-        //now we create the variable to display message
-        $_SESSION['add'] = "Failed to Add";
-        //after added we redirect to back page so
+            //now we create the variable to display message
+            $_SESSION['add'] = "Failed to Add";
+            //after added we redirect to back page so
 
-        header('location:' . SITEURL . 'admin/add-admin.php');
+            header('location:' . SITEURL . 'admin/add-admin.php');
+        }
     }
 }
 ?>
