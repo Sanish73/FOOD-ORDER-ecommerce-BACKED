@@ -54,11 +54,16 @@
 
         $full_name =$_POST['fullname'];
         $user_name = $_POST['username'];
-        $password = $_POST['password'];
+        $password = md5($_POST['password']);
 
 
-        echo $user_name;
-        echo $password;
+       
+        $sql = "INSERT INTO tbl_admin SET 
+        full_name='$full_name',
+         username='$user_name',
+         password='$password'";
+
+        $qry = mysqli_query($conn, $sql) or die("query is worng");
         
      
     }
