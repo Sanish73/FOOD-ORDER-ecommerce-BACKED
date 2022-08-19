@@ -24,7 +24,15 @@
             session_unset();
         }
 
-        if (isset($_SESSION['update'])) {
+        if (isset($_SESSION['user-not-found'])) {
+            echo $_SESSION['user-not-found'];
+            session_unset();
+        }
+        if (isset($_SESSION['pass-match'])) {
+            echo $_SESSION['pass-match'];
+            session_unset();
+        }
+        if (isset($_SESSION['update'])) { //yesley session exist garxa vaney dekhauxa..i mean session ko message dekhauxa
             echo $_SESSION['update'];
             session_unset();
         }

@@ -52,7 +52,7 @@
 
                 <tr>
                     <td colspan="2">
-                        <input type="text" name="id" value="<?php echo $iid; ?>">
+                        <input type="hidden" name="id" value="<?php echo $iid; ?>">
                         <input type="submit" name="submit" value="Update Admin" class="btn-secondary">
                     </td>
                 </tr>
