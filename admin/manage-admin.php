@@ -19,7 +19,7 @@
             session_unset();
         }
 
-        if (isset($_SESSION['delete'])) { 
+        if (isset($_SESSION['delete'])) {
             echo $_SESSION['delete'];
             session_unset();
         }
@@ -51,7 +51,7 @@
             if ($qry) {
 
                 $count = mysqli_num_rows($qry);
-                $SN =1;
+                $SN = 1;
 
                 if ($count > 0) {
 
@@ -70,7 +70,8 @@
                             <td><?php echo ($FULLNAME); ?></td>
                             <td><?php echo ($USERNAME); ?></td>
                             <td>
-                              
+
+                                <a href="<?php echo SITEURL ?>admin/update-password.php?id=<?php echo $ID ?>" class="btn-primary">Change Password</a>
                                 <a href="<?php echo SITEURL ?>admin/update-admin.php?id=<?php echo $ID ?>" class="btn-secondary">Update Admin</a>
                                 <a href="<?php echo SITEURL ?>admin/delete-admin.php?id=<?php echo $ID ?>" class="btn-danger">Delete Admin</a>
                             </td>
