@@ -35,7 +35,7 @@
     width: 100%;
 }
 
-.tbl-30{
+.tbl-30 {
     width: 30%;
     /* background-color: red; */
 }
@@ -50,7 +50,7 @@ table tr td {
     padding: 1%;
 }
 
-.btn-primary{
+.btn-primary {
     background-color: #1e90ff;
     padding: 1%;
     text-decoration: none;
@@ -58,12 +58,13 @@ table tr td {
     font-weight: bold;
     border-radius: 5px;
 }
-.btn-primary:hover{
+
+.btn-primary:hover {
     background-color: #2742fa;
 }
 
 
-.btn-secondary{
+.btn-secondary {
     background-color: #7bed9f;
     padding: 1%;
     text-decoration: none;
@@ -71,11 +72,12 @@ table tr td {
     font-weight: bold;
     border-radius: 5px;
 }
-.btn-secondary:hover{
+
+.btn-secondary:hover {
     background-color: #2ed573;
 }
 
-.btn-danger{
+.btn-danger {
     background-color: #ff68b1;
     padding: 1%;
     text-decoration: none;
@@ -83,7 +85,8 @@ table tr td {
     font-weight: bold;
     border-radius: 5px;
 }
-.btn-danger:hover{
+
+.btn-danger:hover {
     background-color: #ff4757;
 }
 
@@ -143,4 +146,15 @@ table tr td {
 .footer {
     background-color: #e15f41;
     color: white;
+}
+
+
+/* ///////////////////////css for Login */
+.login {
+    width: 20%;
+    border: 1px solid gray;
+    margin: 7% auto;
+    /*here 5 % meanis top and button but auto palce it in center */
+    padding: 3%;
+
 }
