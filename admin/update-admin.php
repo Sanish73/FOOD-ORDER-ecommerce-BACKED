@@ -22,18 +22,20 @@
             if ($count == 1) { //check whether we have admin data or not
                 $row = mysqli_fetch_assoc($qry);
 
+                $iid = $row['id'];
                 $FullName = $row['full_name'];
                 $UserName = $row['username'];
             } else {
                 // if we didnt found admin data then we redirect to home page so that hacker cannot get into update admin
-                echo
+                header('location:' . SITEURL . 'admin/manage-admin.php');
             }
         }
 
         ?>
+        <!-- ------------------php closed------------------------------ -->
 
         <form action="" method="POST">
-            <table class="tbl-30" >
+            <table class="tbl-30">
                 <tr>
                     <td>Full Name:</td>
                     <td>
@@ -50,6 +52,7 @@
 
                 <tr>
                     <td colspan="2">
+                        <input type="text" name="id" value="<?php echo $iid; ?>">
                         <input type="submit" name="submit" value="Update Admin" class="btn-secondary">
                     </td>
                 </tr>
@@ -61,7 +64,37 @@
 
 
 
+<!-- ----------------php for whether the submit button is clicked or not-------------------------- -->
+<?php
 
+if (isset($_POST['submit'])) {
+
+    $Iid = $_POST['id'];
+    $FullName = $_POST['fullname'];
+    $UserName = $_POST['username'];
+
+    if (empty($FullName) || empty($UserName)) {
+    } else {
+        $sql = "UPDATE tbl_admin SET full_name = '$FullName' , username = '$UserName' WHERE id= '$Iid'";
+
+        $qry = mysqli_query($conn, $sql) or die("update button is not valid!!!!!!");
+
+        if ($qry) {
+            //now we create the variable to display message
+            $_SESSION['update'] = "Sucessfully Updated";
+            //after added we redirect to back page so
+            header('location:' . SITEURL . 'admin/manage-admin.php');
+        }else{
+            //now we create the variable to display message
+            $_SESSION['update'] = "Failed To Updated";
+            //after added we redirect to back page so
+            header('location:' . SITEURL . 'admin/update-admin.php');
+
+        }
+    }
+}
+
+?>
 
 
 

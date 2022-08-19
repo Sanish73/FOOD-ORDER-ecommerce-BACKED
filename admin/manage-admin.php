@@ -19,11 +19,15 @@
             session_unset();
         }
 
-        if (isset($_SESSION['delete'])) { //yesley session exist garxa vaney dekhauxa..i mean session ko message dekhauxa
+        if (isset($_SESSION['delete'])) { 
             echo $_SESSION['delete'];
             session_unset();
         }
 
+        if (isset($_SESSION['update'])) {
+            echo $_SESSION['update'];
+            session_unset();
+        }
         ?>
         <br><br><br>
         <a href="add-admin.php" class="btn-primary">Add Admin</a>
