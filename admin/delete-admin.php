@@ -15,7 +15,9 @@ if ($sql == TRUE) {
     $qry = mysqli_query($conn, $sql);
     if ($qry) {
         //now we create the variable to display message
+        
         $_SESSION['delete'] = "Sucessfully Deleted";
+        // $_SESSION['user'] = $userName;
         //after added we redirect to back page so
 
         header('location:' . SITEURL . 'admin/manage-admin.php');

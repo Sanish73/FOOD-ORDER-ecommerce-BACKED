@@ -2,9 +2,9 @@
     <!-- menu section end -->
 
 
-    
     <!-- main content section starts -->
     <div class="main-content">
+        
         <div class="wrapper">
             <h1>Dashboard</h1>
             <div class="col-4 text-center">

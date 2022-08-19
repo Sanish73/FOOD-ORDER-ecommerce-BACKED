@@ -1,4 +1,6 @@
-<?php include('../config/constant.php');  ?>
+<?php include('../config/constant.php');
+include('login-check.php');
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -12,23 +14,33 @@
 
     <!-- link -->
     <link rel="stylesheet" href="../css/admin.css">
-    
+
 </head>
 
 <body>
-    <!-- <h1>admin panel</h1> -->
+
 
     <!-- menu section strarts -->
-    <div class="menu text-center">
-        <div class="wrapper">
-            <ul>
-                <li><a href="index.php">Home</a></li>
-                <li><a href="manage-admin.php">Admin</a></li>
-                <li><a href="manage-category.php">Category</a></li>
-                <li><a href="manage-food.php">Food</a></li>
-                <li><a href="manage-order.php">Order</a></li>
+  
 
-            </ul>
-        </div>
 
-    </div>
+        <div class=" menu text-center ">
+
+
+            <div class="wrapper ">
+                <ul>
+                    <li><a href="index.php">Home</a></li>
+                    <li><a href="manage-admin.php">Admin</a></li>
+                    <li><a href="manage-category.php">Category</a></li>
+                    <li><a href="manage-food.php">Food</a></li>
+                    <li><a href="manage-order.php">Order</a></li>
+                    <li><a href="logout.php">LogOut</a></li>
+
+                </ul>
+            </div>
+
+
+</div>
+
+           
+           

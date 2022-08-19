@@ -22,12 +22,17 @@
             echo $_SESSION['login'];
             session_unset();
         }
+        if (isset($_SESSION['user-not-login'])) {
+            echo $_SESSION['user-not-login'];
+            session_unset();
+        }
+     
         ?><br><br>
 
         <form action="" method="POST" class="text-center">
             <label class="bold">UserName:</label><br>
-            <input type="text" name="username" placeholder="Enter Username."><br><br>
-            <label class="bold">Password:</label><br><br>
+            <input type="text" name="username" placeholder="Enter Username."><br><br><br>
+            <label class="bold">Password:</label><br>
             <input type="password" name="password" placeholder="Enter Password."><br><br>
             <input type="submit" name="submit" value="Submit" class="btn-primary">
         </form>
@@ -57,7 +62,10 @@ if (isset($_POST['submit'])) {
 
         if ($count == 1) {
             //user is available and login success
-            echo ("com");
+            header('location:'.SITEURL.'admin/index.php');
+            $_SESSION['user'] = $userName;
+            
+
         } else {
             //user is not available and login is not success
             // give message here

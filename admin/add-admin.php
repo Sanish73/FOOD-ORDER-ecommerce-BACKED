@@ -120,6 +120,7 @@ if (isset($_POST['submit'])) //button clicked
     
             if ($qry == TRUE) {
                 //now we create the variable to display message
+                // $_SESSION['user'] = $userName;
                 $_SESSION['add'] = "Sucessfully Added";
                 //after added we redirect to back page so
                 header('location:' . SITEURL . 'admin/manage-admin.php');
