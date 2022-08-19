@@ -50,6 +50,17 @@ table tr td {
     padding: 1%;
 }
 
+.primary-text{
+    color: #f55167;
+    font-weight: bold;
+}
+.secondary-text{
+    color: #50ea81;
+    font-weight: bold;
+}
+.bold{
+    font-weight: bold;
+}
 .btn-primary {
     background-color: #1e90ff;
     padding: 1%;
