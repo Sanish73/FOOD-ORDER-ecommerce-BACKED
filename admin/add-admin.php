@@ -100,14 +100,12 @@ if (isset($_POST['submit'])) //button clicked
             //now we create the variable to display message
             $_SESSION['add'] = "Sucessfully Added";
             //after added we redirect to back page so
-
             header('location:' . SITEURL . 'admin/manage-admin.php');
-        } else {
 
+        } else {
             //now we create the variable to display message
             $_SESSION['add'] = "Failed to Add";
             //after added we redirect to back page so
-
             header('location:' . SITEURL . 'admin/add-admin.php');
         }
     }

@@ -66,7 +66,8 @@
                             <td><?php echo ($FULLNAME); ?></td>
                             <td><?php echo ($USERNAME); ?></td>
                             <td>
-                                <a href="#" class="btn-secondary">Update Admin</a>
+                              
+                                <a href="<?php echo SITEURL ?>admin/update-admin.php?id=<?php echo $ID ?>" class="btn-secondary">Update Admin</a>
                                 <a href="<?php echo SITEURL ?>admin/delete-admin.php?id=<?php echo $ID ?>" class="btn-danger">Delete Admin</a>
                             </td>
                         </tr>
