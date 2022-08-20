@@ -5,9 +5,7 @@
 <div class="main-content">
     <div class="wrapper">
         <h1>Manage Category</h1>
-        <br><br>
-        <a href="<?php echo SITEURL; ?>admin/add-category.php" class="btn-primary">Add Category</a>
-        <br><br><br>
+        <br>
         <?php
         if (isset($_SESSION['category-add'])) {
             echo ($_SESSION['category-add']);
@@ -20,7 +18,10 @@
             unset($_SESSION['category-faild-add']);
         }
 
-        ?>
+        ?><br><br><br>
+        <a href="<?php echo SITEURL; ?>admin/add-category.php" class="btn-primary">Add Category</a>
+        <br><br><br>
+        
         <table class="tbl-full">
             <tr>
                 <th>S.N</th>
