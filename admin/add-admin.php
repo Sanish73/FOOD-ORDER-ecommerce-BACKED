@@ -12,7 +12,13 @@ include('partials/login-check.php');
 <div class="main-content">
     <div class="wrapper">
         <h1>Add Admin</h1>
-        <br><br>
+        <br>
+        <?php
+        if (isset($_SESSION['added-same-username'])) {
+            echo $_SESSION['added-same-username'];
+            unset($_SESSION['added-same-username']);
+        }
+        ?><br><br>
         <form name="login" action="" method="POST" onsubmit="validation()">
             <table class="tbl-30">
                 <tr>
@@ -113,29 +119,41 @@ if (isset($_POST['submit'])) //button clicked
     //         header('location:' . SITEURL . 'admin/add-admin.php');
     //     }
     // }
+
     if (!empty($full_name) && !empty($user_name) && !empty($password)) {
-        $password = md5($password);
-        $sql = "INSERT INTO tbl_admin SET 
+        ///useing this sql for same username
+        $sql1 =  "SELECT username FROM tbl_admin WHERE username='$user_name'";
+        $qry1 = mysqli_query($conn, $sql1);
+        $count1 = mysqli_fetch_row($qry1);
+        // $row = mysqli_fetch_assoc($qry);
+        // echo $count1;
+        if ($count1 >= 1) {
+            // echo ("there username exist");
+            
+            $_SESSION['added-same-username'] = " Username Already Taken!!";
+            header('location:' . SITEURL . 'admin/add-admin.php');
+           ;
+        } else {
+            $password = md5($password);
+            $sql = "INSERT INTO tbl_admin SET 
             full_name='$full_name',
              username='$user_name',
              password='$password'";
 
-        $qry = mysqli_query($conn, $sql) or die("query is worng");
+            $qry = mysqli_query($conn, $sql) or die("query is worng");
 
-        if ($qry == TRUE) {
-            //now we create the variable to display message
-            // $_SESSION['user'] = $userName;
-            $_SESSION['add'] = "Sucessfully Added";
-
-            //after added we redirect to back page so
-            header('location:' . SITEURL . 'admin/manage-admin.php');
-        } else {
-            //now we create the variable to display message
-            $_SESSION['add'] = "Failed to Add";
-            //after added we redirect to back page so
-            header('location:' . SITEURL . 'admin/add-admin.php');
-
-           
+            if ($qry == TRUE) {
+                //now we create the variable to display message
+                // $_SESSION['user'] = $userName;
+                $_SESSION['add'] = "Sucessfully Added";
+                //after added we redirect to back page so
+                header('location:' . SITEURL . 'admin/manage-admin.php');
+            } else {
+                //now we create the variable to display message
+                $_SESSION['add'] = "Failed to Add";
+                //after added we redirect to back page so
+                header('location:' . SITEURL . 'admin/add-admin.php');
+            }
         }
     } else {
         // give message here

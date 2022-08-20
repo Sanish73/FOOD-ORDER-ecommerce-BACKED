@@ -106,6 +106,8 @@ if (isset($_POST['submit'])) {
         header('location:' . SITEURL . 'admin/manage-category.php');
     }else{
         // echo "fase";
+        $_SESSION['category-faild-add'] = "Failed To Added ";
+        header('location:' . SITEURL . 'admin/manage-category.php');
     }
 }
 
