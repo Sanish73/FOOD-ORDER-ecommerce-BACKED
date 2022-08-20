@@ -6,9 +6,12 @@ include('partials/login-check.php');
 
 <div class="main-content">
     <div class="wrapper">
-        <h1>Add Admin</h1>
+        <h1>Add Category</h1>
         <br><br>
+
         <form name="login" action="" method="POST" onsubmit="validation()">
+
+        
         </form>
     </div>
 </div>
