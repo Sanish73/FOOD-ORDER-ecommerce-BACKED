@@ -1,4 +1,7 @@
-<?php include('../config/constant.php');  ?>
+<?php include('../config/constant.php');  
+
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -62,8 +65,9 @@ if (isset($_POST['submit'])) {
 
         if ($count == 1) {
             //user is available and login success
-            header('location:'.SITEURL.'admin/index.php');
             $_SESSION['user'] = $userName;
+            header('location:'.SITEURL.'admin/index.php');
+            
             
 
         } else {

@@ -1,4 +1,9 @@
-<?php include('partials/menu.php'); ?>
+<?php include('partials/menu.php'); 
+include('partials/login-check.php');
+
+
+
+?>
 <!-- menu section end -->
 
 
@@ -74,7 +79,7 @@
 <!-- --------------------------PHP---------------------------- -->
 
 <?php
-
+echo  $_SESSION['user'];
 if (isset($_POST['submit'])) //button clicked
 {
     //now getting the value from the form;
@@ -122,6 +127,7 @@ if (isset($_POST['submit'])) //button clicked
                 //now we create the variable to display message
                 // $_SESSION['user'] = $userName;
                 $_SESSION['add'] = "Sucessfully Added";
+              
                 //after added we redirect to back page so
                 header('location:' . SITEURL . 'admin/manage-admin.php');
     

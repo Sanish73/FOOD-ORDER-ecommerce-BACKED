@@ -13,7 +13,9 @@
 
         <!-- button to add admin -->
         <br>
+        
         <?php
+       
         if (isset($_SESSION['add'])) { //yesley session exist garxa vaney dekhauxa..i mean session ko message dekhauxa
             echo $_SESSION['add'];
             session_unset();
