@@ -23,11 +23,14 @@
         <?php
         if (isset($_SESSION['login'])) {
             echo $_SESSION['login'];
-            session_unset();
+            // session_unset();
+            unset($_SESSION['login']);
+            
         }
         if (isset($_SESSION['user-not-login'])) {
             echo $_SESSION['user-not-login'];
-            session_unset();
+            // session_unset();
+            unset($_SESSION['user-not-login']);
         }
      
         ?><br><br>

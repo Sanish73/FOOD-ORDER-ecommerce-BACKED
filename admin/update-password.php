@@ -14,11 +14,13 @@
         // $G_id = $_GET['id']; //or
         if (isset($_GET['id'])) {
             $Iid = $_GET['id'];
+          
         }
 
         if (isset($_SESSION['not-match'])) { //yesley session exist garxa vaney dekhauxa..i mean session ko message dekhauxa
             echo $_SESSION['not-match'];
-            session_unset();
+            // session_unset();
+            unset($_SESSION['not-match']);
         }
 
         ?>

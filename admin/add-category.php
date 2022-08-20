@@ -71,29 +71,42 @@ include('partials/login-check.php');
 
 <?php
 
-    if(isset($_POST['submit'])){
+if (isset($_POST['submit'])) {
     //    1.getting the value from form
     $title = $_POST['title'];
-    
+
     // for radio button of featured we have to check whether the button is selected or not .
-    if(isset($_POST['featured'])){
+    if (isset($_POST['featured'])) {
         // getting the vallue from form
         $featured = $_POST['featured'];
-        
-
-    }else{
-        $featured = "NO Featured" ;
+    } else {
+        $featured = "NO Featured";
     }
 
     // for radio button 0f active we have to check whether the button is selected or not .
-    if(isset($_POST['active'])){
+    if (isset($_POST['active'])) {
         // getting the vallue from form
         $active = $_POST['active'];
-        
+    } else {
+        $active = "NO Active";
+    }
 
+    $sql = "INSERT INTO tbl_category SET 
+            title='$title' , 
+            featured = '$featured',
+            active='$active'
+            ";
+
+    $qry = mysqli_query($conn, $sql) or die("category query is wrong!!!");
+
+    if($qry){
+        // echo "treu";
+
+        $_SESSION['category-add'] = "Sucessfully Added ";
+        header('location:' . SITEURL . 'admin/manage-category.php');
     }else{
-        $active = "NO Active" ;
+        // echo "fase";
     }
-    }
+}
 
 ?>

@@ -8,6 +8,14 @@
         <br><br>
         <a href="<?php echo SITEURL;?>admin/add-category.php" class="btn-primary">Add Category</a>
         <br><br><br>
+        <?php
+            if(isset($_SESSION['category-add'])){
+                echo ($_SESSION['category-add']);
+                unset($_SESSION['category-add']);//here sanish you can get error if you put session_unset()
+                        // session_unset();     dont put this// beaause of this the main session that you have put can also be unset results in $_session['user'] destory so
+                                                // put unset($_session[']) this makes only particaular session unset
+            };
+        ?>
         <table class="tbl-full">
             <tr>
                 <th>S.N</th>

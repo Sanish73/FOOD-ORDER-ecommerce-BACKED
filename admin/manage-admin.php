@@ -18,25 +18,31 @@
        
         if (isset($_SESSION['add'])) { //yesley session exist garxa vaney dekhauxa..i mean session ko message dekhauxa
             echo $_SESSION['add'];
-            session_unset();
+            // session_unset();
+            unset($_SESSION['add']);
         }
 
         if (isset($_SESSION['delete'])) {
             echo $_SESSION['delete'];
-            session_unset();
+            // session_unset();
+            unset($_SESSION['delete']);
+            
         }
 
         if (isset($_SESSION['user-not-found'])) {
             echo $_SESSION['user-not-found'];
-            session_unset();
+            // session_unset();
+            unset($_SESSION['user-not-found']);
         }
         if (isset($_SESSION['pass-match'])) {
             echo $_SESSION['pass-match'];
-            session_unset();
+            // session_unset();
+            unset($_SESSION['pass-match']);
         }
         if (isset($_SESSION['update'])) { //yesley session exist garxa vaney dekhauxa..i mean session ko message dekhauxa
             echo $_SESSION['update'];
-            session_unset();
+            // session_unset();
+            unset($_SESSION['update']);
         }
         ?>
         <br><br><br>
