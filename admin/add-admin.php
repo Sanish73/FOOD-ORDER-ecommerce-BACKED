@@ -79,7 +79,6 @@ include('partials/login-check.php');
 <!-- --------------------------PHP---------------------------- -->
 
 <?php
-echo  $_SESSION['user'];
 if (isset($_POST['submit'])) //button clicked
 {
     //now getting the value from the form;
