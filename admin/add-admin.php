@@ -1,4 +1,4 @@
-<?php include('partials/menu.php'); 
+<?php include('partials/menu.php');
 include('partials/login-check.php');
 
 
@@ -113,35 +113,35 @@ if (isset($_POST['submit'])) //button clicked
     //         header('location:' . SITEURL . 'admin/add-admin.php');
     //     }
     // }
-    if(!empty($full_name) && !empty($user_name) && !empty($password)){
+    if (!empty($full_name) && !empty($user_name) && !empty($password)) {
         $password = md5($password);
         $sql = "INSERT INTO tbl_admin SET 
             full_name='$full_name',
              username='$user_name',
              password='$password'";
-    
-            $qry = mysqli_query($conn, $sql) or die("query is worng");
-    
-            if ($qry == TRUE) {
-                //now we create the variable to display message
-                // $_SESSION['user'] = $userName;
-                $_SESSION['add'] = "Sucessfully Added";
-              
-                //after added we redirect to back page so
-                header('location:' . SITEURL . 'admin/manage-admin.php');
-    
-            } else {
-                //now we create the variable to display message
-                $_SESSION['add'] = "Failed to Add";
-                //after added we redirect to back page so
-                header('location:' . SITEURL . 'admin/add-admin.php');
-            }
-    }else{
+
+        $qry = mysqli_query($conn, $sql) or die("query is worng");
+
+        if ($qry == TRUE) {
+            //now we create the variable to display message
+            // $_SESSION['user'] = $userName;
+            $_SESSION['add'] = "Sucessfully Added";
+
+            //after added we redirect to back page so
+            header('location:' . SITEURL . 'admin/manage-admin.php');
+        } else {
+            //now we create the variable to display message
+            $_SESSION['add'] = "Failed to Add";
+            //after added we redirect to back page so
+            header('location:' . SITEURL . 'admin/add-admin.php');
+
+           
+        }
+    } else {
         // give message here
         $_SESSION['add'] = "Failed to Add";
         //after added we redirect to back page so
         header('location:' . SITEURL . 'admin/add-admin.php');
-        
     }
 }
 ?>
