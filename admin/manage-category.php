@@ -21,43 +21,50 @@
         ?><br><br><br>
         <a href="<?php echo SITEURL; ?>admin/add-category.php" class="btn-primary">Add Category</a>
         <br><br><br>
-        
+
         <table class="tbl-full">
             <tr>
                 <th>S.N</th>
-                <th>Full Name</th>
-                <th>User Name</th>
-                <th>Actions</th>
+                <th>Title</th>
+                <th>Image</th>
+                <th>Featured</th>
+                <th>Active</th>
+                <th>Action</th>
             </tr>
+
+            <!-- ------------------php for table----------------- -->
+
+            <?php
+            $sql = "SELECT * FROM tbl_category";
+
+            $qry = mysqli_query($conn, $sql);
+
+            $count = mysqli_num_rows($qry);
+
+            if ($count > 0) {
+                //we have data
+                while($rew = mysqli_fetch_assoc($qry)){
+
+                }
+            } else {
+                //we donot have data
+                //desplaying message inside table
+            }
+
+            ?>
             <tr>
                 <td>1.</td>
-                <td>Vijay </td>
-                <td>Vijay th</td>
+                <td>Vijay</td>
+                <td>Vijay</td>
+                <td>Vijay</td>
+                <td>Vijay</td>
                 <td>
-                    <a href="#" class="btn-secondary">Update Admin</a>
-                    <a href="#" class="btn-danger">Delete Admin</a>
+                    <a href="#" class="btn-secondary">Update Category</a>
+                    <a href="#" class="btn-danger">Delete Category</a>
                 </td>
             </tr>
 
-            <tr>
-                <td>1.</td>
-                <td>Vijay </td>
-                <td>Vijay th</td>
-                <td>
-                    <a href="#" class="btn-secondary">Update Admin</a>
-                    <a href="#" class="btn-danger">Delete Admin</a>
-                </td>
-            </tr>
 
-            <tr>
-                <td>1.</td>
-                <td>Vijay </td>
-                <td>Vijay th</td>
-                <td>
-                    <a href="#" class="btn-secondary">Update Admin</a>
-                    <a href="#" class="btn-danger">Delete Admin</a>
-                </td>
-            </tr>
 
         </table>
     </div>
