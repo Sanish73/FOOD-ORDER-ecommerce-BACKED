@@ -109,6 +109,17 @@ if (isset($_POST['submit'])) {
         // now to upload image we need name, source path, and destinaton 
         if (isset($_FILES['image']['name'])) {
             $image_name = $_FILES['image']['name'];
+            //adding Auto image name in $image_name
+            //getting the extension of out image like(img,jpg,png) eg'food.jpg'
+            //now using explode seperates the image name and extension llike(food) and jpg seperately
+            //ext means extension
+            $ext = end(explode('.',$image_name));
+            // echo $ext;
+
+            // now renaming randomly using $ext and adding functoin
+            $image_name = "Food_Category_".rand(000 , 999).'.'.$ext;
+            // echo $image_name;
+
             $source_path = $_FILES['image']['tmp_name'];
             $destination_path = "../images/category/" . $image_name;
 
