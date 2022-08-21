@@ -43,7 +43,26 @@
 
             if ($count > 0) {
                 //we have data
-                while($rew = mysqli_fetch_assoc($qry)){
+                while ($row = mysqli_fetch_assoc($qry)) {
+                    $id = $row['id'];
+                    $title = $row['title'];
+                    $image_name = $row['img_name'];
+                    $featured = $row['featured'];
+                    $active = $row['active'];
+            ?>
+                    <tr>
+                        <td>1.</td>
+                        <td>Vijay</td>
+                        <td>Vijay</td>
+                        <td>Vijay</td>
+                        <td>Vijay</td>
+                        <td>
+                            <a href="#" class="btn-secondary">Update Category</a>
+                            <a href="#" class="btn-danger">Delete Category</a>
+                        </td>
+                    </tr>
+                <?php
+
 
                 }
             } else {
@@ -57,24 +76,9 @@
                     </td>
                 </tr>
 
-                <?php
+            <?php
             }
-
             ?>
-            <tr>
-                <td>1.</td>
-                <td>Vijay</td>
-                <td>Vijay</td>
-                <td>Vijay</td>
-                <td>Vijay</td>
-                <td>
-                    <a href="#" class="btn-secondary">Update Category</a>
-                    <a href="#" class="btn-danger">Delete Category</a>
-                </td>
-            </tr>
-
-
-
         </table>
     </div>
 
