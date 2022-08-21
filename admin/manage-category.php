@@ -17,6 +17,11 @@
             echo ($_SESSION['category-faild-add']);
             unset($_SESSION['category-faild-add']);
         }
+        if (isset( $_SESSION['delete-category'])) {
+            echo ( $_SESSION['delete-category']);
+            unset( $_SESSION['delete-category']);
+        }
+       
 
         ?><br><br><br>
         <a href="<?php echo SITEURL; ?>admin/add-category.php" class="btn-primary">Add Category</a>
@@ -69,7 +74,7 @@
                         <td><?php echo $active ?></td>
                         <td>
                             <a href="#" class="btn-secondary">Update Category</a>
-                            <a href="<?php echo SITEURL; ?> admin/delete-category.php" class="btn-danger">Delete Category</a>
+                            <a href="<?php echo SITEURL; ?>admin/delete-category.php?id=<?php echo $id; ?> &image_name=<?php echo $image_name; ?>" class="btn-danger">Delete Category</a>
                         </td>
                     </tr>
                 <?php
