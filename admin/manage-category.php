@@ -57,7 +57,7 @@
                         <td><?php
                             if ($image_name != "") {
                             ?>
-                                <img src="<?php echo SITEURL ?>images/category/<?php echo $image_name ?>" width="100px">
+                               <a href="<?php echo SITEURL ?>images/category/<?php echo $image_name ?>"> <img src="<?php echo SITEURL ?>images/category/<?php echo $image_name ?>" width="100px"></a>
                             <?php
                             } else {
                                 echo "Image Not Added!!";
@@ -69,7 +69,7 @@
                         <td><?php echo $active ?></td>
                         <td>
                             <a href="#" class="btn-secondary">Update Category</a>
-                            <a href="#" class="btn-danger">Delete Category</a>
+                            <a href="<?php echo SITEURL; ?> admin/delete-category.php" class="btn-danger">Delete Category</a>
                         </td>
                     </tr>
                 <?php
