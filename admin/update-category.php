@@ -10,12 +10,32 @@
         <?php
         // echo "hi";
         //checking the whether the id is set or not
-        if(isset($_GET['id'])){
-                //getting id data and other details
-                echo "hi done";
-        }else{
-            
+        if (isset($_GET['id'])) {
+            //getting id data and other details
+            $id = $_GET['id'];
+            $sql = "SELECT  * FROM tbl_category WHERE id='$id'; ";
 
+            $qry = mysqli_query($conn, $sql);
+
+            $count = mysqli_num_rows($qry);
+
+            if ($count == 1) {
+                // echo "there exist";
+              $row = mysqli_fetch_assoc($qry);
+
+              $title = $row['title'];
+              $current_image = $row['img_name'];
+              $fearured = $row['featured'];
+              $active = $row['active'];
+              
+
+              
+            } else {
+                header('location:' . SITEURL . 'admin/manage-category.php');
+
+            }
+        } else {
+            header('location:' . SITEURL . 'admin/manage-category.php');
         }
         ?>
         <!-- ------------------php closed------------------------------ -->
@@ -25,7 +45,7 @@
                 <tr>
                     <td>Title:</td>
                     <td>
-                        <input type="text" name="title" value="<?php echo $FullName; ?>">
+                        <input type="text" name="title" value="<?php echo $title; ?>">
                     </td>
                 </tr>
 
@@ -33,7 +53,8 @@
                     <td>Current Image:</td>
                     <td>
                         <!-- image will be displayed here -->
-                        <!-- <input type="text" name="username" value="<?php //echo $UserName; ?>"> -->
+                        <!-- <input type="text" name="username" value="<?php //echo $UserName; 
+                                                                        ?>"> -->
                     </td>
                 </tr>
 
@@ -41,7 +62,7 @@
                     <td>New Image:</td>
                     <td>
                         <!-- image will be displayed here -->
-                        <input type="file" name="image" >
+                        <input type="file" name="image">
                     </td>
                 </tr>
 
@@ -56,7 +77,7 @@
                 <tr>
                     <td>Action:</td>
                     <td>
-                    <input type="radio" name="featured" value="no">No
+                        <input type="radio" name="featured" value="no">No
                         <input type="radio" name="featured" value="yes">Yes
                     </td>
                 </tr>
