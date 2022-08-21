@@ -9,13 +9,68 @@
 
         <!-- ---------------------php for data ------------------- -->
         <?php
-        // 1. First we should get the id from GET method AKA website link
 
+        // / 1. First we should get the id from GET method AKA website link
         // $G_id = $_GET['id']; //or
         if (isset($_GET['id'])) {
             $Iid = $_GET['id'];
-          
+
+
+            if (isset($_POST['submit'])) {
+                $Iid = $_POST['id'];
+                $CurrentPassword = md5($_POST['currentpassword']);
+                $NewPassword = md5($_POST['newpassword']);
+                $ConfirmPassword = md5($_POST['confirmpassword']);
+
+
+                // issue is change password site can onpen directly so change it 
+
+                $sql = "SELECT * FROM tbl_admin WHERE id= $Iid AND password='$CurrentPassword'";
+
+                $qry = mysqli_query($conn, $sql) or die("Update query is not match!!!");
+
+                if ($qry == true) {
+                    $count = mysqli_num_rows($qry); //this checks whether their is value or not
+
+                    if ($count == 1) { //check whether user exist for changing password
+
+                        if ($NewPassword == $ConfirmPassword) {
+                            $sql = "UPDATE tbl_admin SET password = '$ConfirmPassword'  WHERE id= '$Iid' ";
+
+                            $qry = mysqli_query($conn, $sql) or die("update button is not valid!!!!!!");
+
+                            if ($qry) {
+                                //now we create the variable to display message
+                                $_SESSION['update'] = "Password Succesfully Updated";
+                                //after added we redirect to back page so
+                                header('location:' . SITEURL . 'admin/manage-admin.php');
+                            } else {
+                                //now we create the variable to display message
+                                $_SESSION['update'] = "Failed To Updated Password";
+                                //after added we redirect to back page so
+                                header('location:' . SITEURL . 'admin/update-admin.php');
+                            }
+                        } else if ($NewPassword != $ConfirmPassword) {
+
+                            $_SESSION['not-match'] = "Password Dosn't Matched";
+                            //after added we redirect to back page so
+                            header('location:' . SITEURL . 'admin/update-password.php?id=' . $Iid);
+                        }
+                    } else {
+                        // if we didnt found admin data then we redirect to home page so that hacker cannot get into update admin
+                        $_SESSION['user-not-found'] = "User Not Found";
+                        //after added we redirect to back page so
+                        header('location:' . SITEURL . 'admin/manage-admin.php');
+                    }
+                }
+            }
+        } else {
+            header('location:' . SITEURL . 'admin/manage-admin.php');
         }
+
+
+
+
 
         if (isset($_SESSION['not-match'])) { //yesley session exist garxa vaney dekhauxa..i mean session ko message dekhauxa
             echo $_SESSION['not-match'];
@@ -69,59 +124,6 @@
 </div>
 
 
-<!-- ----------------php for whether the submit button is clicked or not-------------------------- -->
-<?php
-
-if (isset($_POST['submit'])) {
-    $Iid = $_POST['id'];
-    $CurrentPassword = md5($_POST['currentpassword']);
-    $NewPassword = md5($_POST['newpassword']);
-    $ConfirmPassword = md5($_POST['confirmpassword']);
-
-
-
-
-    $sql = "SELECT * FROM tbl_admin WHERE id= $Iid AND password='$CurrentPassword'";
-
-    $qry = mysqli_query($conn, $sql) or die("Update query is not match!!!");
-
-    if ($qry == true) {
-        $count = mysqli_num_rows($qry); //this checks whether their is value or not
-
-        if ($count == 1) { //check whether user exist for changing password
-
-            if ($NewPassword == $ConfirmPassword) {
-                $sql = "UPDATE tbl_admin SET password = '$ConfirmPassword'  WHERE id= '$Iid' ";
-
-                $qry = mysqli_query($conn, $sql) or die("update button is not valid!!!!!!");
-
-                if ($qry) {
-                    //now we create the variable to display message
-                    $_SESSION['update'] = "Password Succesfully Updated";
-                    //after added we redirect to back page so
-                    header('location:' . SITEURL . 'admin/manage-admin.php');
-                } else {
-                    //now we create the variable to display message
-                    $_SESSION['update'] = "Failed To Updated Password";
-                    //after added we redirect to back page so
-                    header('location:' . SITEURL . 'admin/update-admin.php');
-                }
-            } else if ($NewPassword != $ConfirmPassword) {
-
-                $_SESSION['not-match'] = "Password Dosn't Matched";
-                //after added we redirect to back page so
-                header('location:' . SITEURL . 'admin/update-password.php?id=' . $Iid);
-            }
-        } else {
-            // if we didnt found admin data then we redirect to home page so that hacker cannot get into update admin
-            $_SESSION['user-not-found'] = "User Not Found";
-            //after added we redirect to back page so
-            header('location:' . SITEURL . 'admin/manage-admin.php');
-        }
-    }
-}
-
-?>
 
 
 

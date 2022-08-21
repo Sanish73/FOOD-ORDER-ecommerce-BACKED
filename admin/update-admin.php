@@ -9,28 +9,30 @@
 
         <!-- ---------------------php for data ------------------- -->
         <?php
-        // 1. First we should get the id from GET method AKA website link
-        $G_id = $_GET['id'];
+        if (isset($_GET['id'])) {
+            // 1. First we should get the id from GET method AKA website link
+            $G_id = $_GET['id'];
+            $sql = "SELECT * FROM tbl_admin WHERE id= $G_id";
 
-        $sql = "SELECT * FROM tbl_admin WHERE id= $G_id";
+            $qry = mysqli_query($conn, $sql) or die("Update query is not match!!!");
 
-        $qry = mysqli_query($conn, $sql) or die("Update query is not match!!!");
+            if ($qry == true) {
+                $count = mysqli_num_rows($qry); //this checks whether their is value or not
 
-        if ($qry == true) {
-            $count = mysqli_num_rows($qry); //this checks whether their is value or not
+                if ($count == 1) { //check whether we have admin data or not
+                    $row = mysqli_fetch_assoc($qry);
 
-            if ($count == 1) { //check whether we have admin data or not
-                $row = mysqli_fetch_assoc($qry);
-
-                $iid = $row['id'];
-                $FullName = $row['full_name'];
-                $UserName = $row['username'];
-            } else {
-                // if we didnt found admin data then we redirect to home page so that hacker cannot get into update admin
-                header('location:' . SITEURL . 'admin/manage-admin.php');
+                    $iid = $row['id'];
+                    $FullName = $row['full_name'];
+                    $UserName = $row['username'];
+                } else {
+                    // if we didnt found admin data then we redirect to home page so that hacker cannot get into update admin
+                    header('location:' . SITEURL . 'admin/manage-admin.php');
+                }
             }
+        } else {
+            header('location:' . SITEURL . 'admin/manage-admin.php');
         }
-
         ?>
         <!-- ------------------php closed------------------------------ -->
 
@@ -84,12 +86,11 @@ if (isset($_POST['submit'])) {
             $_SESSION['update'] = "Sucessfully Updated";
             //after added we redirect to back page so
             header('location:' . SITEURL . 'admin/manage-admin.php');
-        }else{
+        } else {
             //now we create the variable to display message
             $_SESSION['update'] = "Failed To Updated";
             //after added we redirect to back page so
             header('location:' . SITEURL . 'admin/update-admin.php');
-
         }
     }
 }

@@ -8,9 +8,15 @@
         <br><br>
         <!-- ---------------------php for data ------------------- -->
         <?php
-
-
         // echo "hi";
+        //checking the whether the id is set or not
+        if(isset($_GET['id'])){
+                //getting id data and other details
+                echo "hi done";
+        }else{
+            
+
+        }
         ?>
         <!-- ------------------php closed------------------------------ -->
 
