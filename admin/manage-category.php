@@ -49,6 +49,15 @@
             } else {
                 //we donot have data
                 //desplaying message inside table
+                ?>
+
+                <tr>
+                    <td colspan="6">
+                        No Category Found
+                    </td>
+                </tr>
+
+                <?php
             }
 
             ?>
