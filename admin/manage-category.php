@@ -35,6 +35,7 @@
             <!-- ------------------php for table----------------- -->
 
             <?php
+            $SN = 1;
             $sql = "SELECT * FROM tbl_category";
 
             $qry = mysqli_query($conn, $sql);
@@ -51,11 +52,21 @@
                     $active = $row['active'];
             ?>
                     <tr>
-                        <td>1.</td>
-                        <td>Vijay</td>
-                        <td>Vijay</td>
-                        <td>Vijay</td>
-                        <td>Vijay</td>
+                        <td><?php echo $SN++ ?></td>
+                        <td><?php echo $title ?></td>
+                        <td><?php
+                            if ($image_name != "") {
+                            ?>
+                                <img src="<?php echo SITEURL ?>images/category/<?php echo $image_name ?>" width="100px">
+                            <?php
+                            } else {
+                                echo "Image Not Added!!";
+                            }
+
+                            ?>
+                        </td>
+                        <td><?php echo $featured ?></td>
+                        <td><?php echo $active ?></td>
                         <td>
                             <a href="#" class="btn-secondary">Update Category</a>
                             <a href="#" class="btn-danger">Delete Category</a>
