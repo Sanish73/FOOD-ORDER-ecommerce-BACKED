@@ -17,9 +17,9 @@ if (isset($_GET['id']) && isset($_GET['image_name'])) {
     // now deleting the images which are stored in VS code 
     if($G_image_name!=''){
         // 1. LOating the path of the image 
-        $path = "../images/category".$G_image_name;
+        $path = "../images/category/".$G_image_name;//this slash makes your image not to delete
         // 2.this removes(unlink the images)
-        $remove = unlink(($path));
+        $remove = unlink($path);
 
         if($remove == false){
             echo "failed to delete the image";
