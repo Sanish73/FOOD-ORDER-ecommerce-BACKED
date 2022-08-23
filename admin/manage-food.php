@@ -5,46 +5,85 @@
 <div class="main-content">
     <div class="wrapper">
         <h1>Manage Food</h1>
-        <br><br>
-   <a href="#" class="btn-primary">Add Food</a>
-   <br><br><br>
+        <br>
+        <?php
+        if (isset($_SESSION['food-add'])) {
+            echo ($_SESSION['food-add']);
+            unset($_SESSION['food-add']);
+        }
+        if (isset($_SESSION['food-faild-add'])) {
+            echo ($_SESSION['food-faild-add']);
+            unset($_SESSION['food-faild-add']);
+        }
+        ?>
+        <br><br><br>
+        <a href="<?php echo SITEURL; ?>admin/add-food.php" class="btn-primary">Add Food</a>
+        <br><br><br>
         <table class="tbl-full">
             <tr>
                 <th>S.N</th>
-                <th>Full Name</th>
-                <th>User Name</th>
+                <th>Title</th>
+                <th>Price</th>
+                <th>Image</th>
+                <th>Featured</th>
+                <th>Active</th>
                 <th>Actions</th>
-            </tr>
-            <tr>
-                <td>1.</td>
-                <td>Vijay </td>
-                <td>Vijay th</td>
-                <td>
-                <a href="#" class="btn-secondary">Update Admin</a>
-                <a href="#" class="btn-danger">Delete Admin</a>
-                </td>
+
             </tr>
 
-            <tr>
-                <td>1.</td>
-                <td>Vijay </td>
-                <td>Vijay th</td>
-                <td>
-                <a href="#" class="btn-secondary">Update Admin</a>
-                <a href="#" class="btn-danger">Delete Admin</a>
-                </td>
-            </tr>
+            <?php
+            $sql = "SELECT  * FROM tbl_food";
 
-            <tr>
-                <td>1.</td>
-                <td>Vijay </td>
-                <td>Vijay th</td>
-                <td>
-                <a href="#" class="btn-secondary">Update Admin</a>
-                <a href="#" class="btn-danger">Delete Admin</a>
-                </td>
-            </tr>
+            $qry = mysqli_query($conn, $sql);
 
+            $count = mysqli_num_rows($qry);
+
+            if ($count > 0) {
+                $SN = 1;
+                while ($row = mysqli_fetch_assoc($qry)) {
+                    $id = $row['id'];
+                    $title = $row['title'];
+                    $price = $row['price'];
+                    $image_name = $row['image_name'];
+                    $featured = $row['features'];
+                    $active = $row['active'];
+            ?>
+                    <tr>
+
+                        <td><?php echo $SN++ ?></td>
+                        <td><?php echo   $title ?></td>
+                        <td><?php echo   $price ?></td>
+                        <td><?php
+                            ///checking whether we have image or not
+                            if ($image_name == "") {
+                                echo "Image Not Added";
+                            } else {
+                            ?>
+
+                                <a href="<?php echo SITEURL ?>images/food/<?php echo $image_name ?>">
+                                    <!-- //here even the simple space can make you code different -->
+                                    <img src="<?php echo SITEURL ?>images/food/<?php echo $image_name ?>" width="100px">
+                                </a>
+                            <?php
+                            }
+
+                            ?>
+                        </td>
+                        <td><?php echo  $featured ?></td>
+                        <td><?php echo  $active ?></td>
+                        <td>
+                            <a href="#" class="btn-secondary">Update Food</a>
+                            <a href="#" class="btn-danger">Delete Food</a>
+                        </td>
+                    </tr>
+
+            <?php
+
+                }
+            } else {
+                echo "<tr><td colspan='7'>food not added</td></tr>";
+            }
+            ?>
         </table>
     </div>
 
@@ -53,5 +92,5 @@
 
 
 
- <!-- footer section starts -->
+<!-- footer section starts -->
 <?php include('partials/footer.php') ?>

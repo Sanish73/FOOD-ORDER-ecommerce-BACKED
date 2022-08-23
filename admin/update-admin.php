@@ -82,10 +82,11 @@ if (isset($_POST['submit'])) {
         $qry = mysqli_query($conn, $sql) or die("update button is not valid!!!!!!");
 
         if ($qry) {
+             //after added we redirect to back page so
+             header('location:' . SITEURL . 'admin/manage-admin.php');
             //now we create the variable to display message
             $_SESSION['update'] = "Sucessfully Updated";
-            //after added we redirect to back page so
-            header('location:' . SITEURL . 'admin/manage-admin.php');
+           
         } else {
             //now we create the variable to display message
             $_SESSION['update'] = "Failed To Updated";

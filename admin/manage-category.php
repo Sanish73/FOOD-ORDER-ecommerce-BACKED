@@ -21,6 +21,7 @@
             echo ( $_SESSION['delete-category']);
             unset( $_SESSION['delete-category']);
         }
+      
        
 
         ?><br><br><br>
