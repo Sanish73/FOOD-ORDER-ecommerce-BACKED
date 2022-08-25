@@ -43,6 +43,7 @@ include('partials/login-check.php');
                 </tr>
                 <tr>
                     <td colspan="2">
+                        <br>
                         <input type="submit" name="submit" value="Add Admin" class="btn-secondary">
                     </td>
                 </tr>

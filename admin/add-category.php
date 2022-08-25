@@ -60,6 +60,7 @@ include('partials/login-check.php');
 
                 <tr>
                     <td colspan="2">
+                        <br>
                         <input type="submit" name="submit" value="Add Category" class="btn-secondary">
                     </td>
                 </tr>
