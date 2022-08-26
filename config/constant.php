@@ -10,7 +10,7 @@ define('DATABASE','food-order');
 
 
 
-$conn = mysqli_connect(, USER,PASSWORD,DATABASE) or die("Unable to connect");
+$conn = mysqli_connect(HOST, USER,PASSWORD,DATABASE) or die("Unable to connect");
 
 
 
