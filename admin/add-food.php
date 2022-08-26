@@ -139,7 +139,8 @@ include('partials/login-check.php');
         <?php
 
         if (isset($_POST['submit'])) {
-            if (!empty(isset($_POST['title'])) && !empty($_POST['description']) && !empty(isset($_POST['price']))  && !empty($_FILES['image']['name']) && !empty(isset($_POST['featured'])) && !empty(isset($_POST['active']))) {
+            if (!empty(isset($_POST['title'])) && !empty($_POST['description']) && !empty(isset($_POST['price']))  && !empty($_FILES['image']['name']) 
+            && !empty(isset($_POST['featured'])) && !empty(isset($_POST['active']))) {
                 // getting the data from the database
                 $title = $_POST['title'];
                 $description = $_POST['description'];
