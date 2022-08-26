@@ -23,7 +23,7 @@ include('partials/login-check.php');
 
         ?><br><br>
 
-        <form  action="" method="POST" onsubmit="validation()" enctype="multipart/form-data">
+        <form action="" method="POST" onsubmit="validation()" enctype="multipart/form-data">
             <!-- enctype is used for uploading files  -->
             <table class="tbl-30">
                 <tr>
@@ -139,8 +139,9 @@ include('partials/login-check.php');
         <?php
 
         if (isset($_POST['submit'])) {
-            if (!empty(isset($_POST['title'])) && !empty($_POST['description']) && !empty(isset($_POST['price']))  && !empty($_FILES['image']['name']) 
-            && !empty(isset($_POST['featured'])) && !empty(isset($_POST['active']))) {
+
+            if (!empty(isset($_POST['title'])) && !empty($_POST['description']) && !empty(isset($_POST['price']))  && !empty($_FILES['image']['name'])
+                && !empty(isset($_POST['featured'])) && !empty(isset($_POST['active']))) {
                 // getting the data from the database
                 $title = $_POST['title'];
                 $description = $_POST['description'];
@@ -220,7 +221,7 @@ include('partials/login-check.php');
 
                         $qry2 = mysqli_query($conn, $sql2) or die("add food query is wrong");
 
-                     
+
 
                         if ($qry2 == true) {
                             $_SESSION['food-add'] = "Sucessfully Added ";
@@ -236,35 +237,25 @@ include('partials/login-check.php');
                             // header('location:' . SITEURL . 'admin/manage-food.php');
                             // echo "add";
                         }
-
-
                     } else {
-                            // echo "fase";
-                            $_SESSION['food-faild-add'] = "Failed To Added ";
-                            // header('location:' . SITEURL . 'admin/manage-food.php');
+                        // echo "fase";
+                        $_SESSION['food-faild-add'] = "Failed To Added ";
+                        // header('location:' . SITEURL . 'admin/manage-food.php');
 
-                        }
-                 } else {
-                        // echo "no Image";
-                 }
-            } else {
+                    }
+                } else {
+                    // echo "no Image";
                 }
             } else {
-                // echo "fase";
-                $_SESSION['Fill-require'] = "Please Fill The From!!!";
 
+                //if empty
+                $_SESSION['Fill-require'] = "Please FilL Up!!!!! ";
                 header('location:' . SITEURL . 'admin/add-food.php');
 
-                // header('location:' . SITEURL . 'admin/add-food.php');
-
-
-
-                
-
+            }
         }
-        
-
         ?>
+
 
 
     </div>
