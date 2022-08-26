@@ -181,13 +181,12 @@ include('partials/login-check.php');
                         if ($upload) {
                         } else {
                             $_SESSION['upload-error'] = 'Failed To Upload';
-<<<<<<< HEAD
+
                             header('location' . SITEURL . 'admin/add-food.php');
                             die();
-=======
                             // header('location' . SITEURL . 'admin/add-food.php');
                             // die();
->>>>>>> 65028bdba5cd8d650c33a776345bf481aefdb8a8
+
                         }
 
 
@@ -224,7 +223,7 @@ include('partials/login-check.php');
 
                         if ($qry2 == true) {
                             $_SESSION['food-add'] = "Sucessfully Added ";
-<<<<<<< HEAD
+
                             // Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\Food_Order(ecommerce)\admin\add-food.php:102) in C:\xampp\htdocs\Food_Order(ecommerce)\admin\add-food.php on line 216
                             header('location:' . SITEURL . 'admin/manage-food.php');
                             // echo "add";
@@ -232,31 +231,33 @@ include('partials/login-check.php');
                             // echo "fase";
                             $_SESSION['food-faild-add'] = "Failed To Added ";
                             header('location:' . SITEURL . 'admin/manage-food.php');
-=======
                             //Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\Food_Order(ecommerce)\admin\add-food.php:102) in C:\xampp\htdocs\Food_Order(ecommerce)\admin\add-food.php on line 216
                             // header('location:' . SITEURL . 'admin/manage-food.php');
-                            echo "add";
-                        } else {
+                            // echo "add";
+                        }
+
+
+                    } else {
                             // echo "fase";
                             $_SESSION['food-faild-add'] = "Failed To Added ";
                             // header('location:' . SITEURL . 'admin/manage-food.php');
->>>>>>> 65028bdba5cd8d650c33a776345bf481aefdb8a8
+
                         }
-                    } else {
+                 } else {
                         // echo "no Image";
-                    }
-                } else {
+                 }
+            } else {
                 }
             } else {
                 // echo "fase";
                 $_SESSION['Fill-require'] = "Please Fill The From!!!";
-<<<<<<< HEAD
+
                 header('location:' . SITEURL . 'admin/add-food.php');
-=======
+
                 // header('location:' . SITEURL . 'admin/add-food.php');
->>>>>>> 65028bdba5cd8d650c33a776345bf481aefdb8a8
+
             }
-        }
+        
 
         ?>
 
