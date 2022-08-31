@@ -21,9 +21,6 @@
             echo ( $_SESSION['delete-category']);
             unset( $_SESSION['delete-category']);
         }
-      
-       
-
         ?><br><br><br>
         <a href="<?php echo SITEURL; ?>admin/add-category.php" class="btn-primary">Add Category</a>
         <br><br><br>
@@ -58,8 +55,8 @@
                     $active = $row['active'];
             ?>
                     <tr>
-                        <td><?php echo $SN++ ?></td>
-                        <td><?php echo $title ?></td>
+                        <td><?php echo $SN++ ;?></td>
+                        <td><?php echo $title ;?></td>
                         <td><?php
                             if ($image_name != "") {
                             ?>

@@ -77,8 +77,8 @@
                 <tr>
                     <td>Action:</td>
                     <td>
-                        <input type="radio" name="featured" value="no">No
-                        <input type="radio" name="featured" value="yes">Yes
+                        <input type="radio" name="action" value="no">No
+                        <input type="radio" name="action" value="yes">Yes
                     </td>
                 </tr>
 
