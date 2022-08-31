@@ -15,6 +15,11 @@
             echo ($_SESSION['food-faild-add']);
             unset($_SESSION['food-faild-add']);
         }
+
+        if(isset(   $_SESSION['delete-food'])){
+            echo(   $_SESSION['delete-food']);
+            unset(   $_SESSION['delete-food']);
+        }
         ?>
         <br><br><br>
         <a href="<?php echo SITEURL; ?>admin/add-food.php" class="btn-primary">Add Food</a>
@@ -73,7 +78,7 @@
                         <td><?php echo  $active ?></td>
                         <td>
                             <a href="#" class="btn-secondary">Update Food</a>
-                            <a href="#" class="btn-danger">Delete Food</a>
+                            <a href="<?php echo SITEURL; ?>admin/delete-food.php?id=<?php echo $id; ?> &title=<?php echo $title;?>" class="btn-danger">Delete Food</a>
                         </td>
                     </tr>
 

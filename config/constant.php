@@ -1,6 +1,7 @@
 <?php
 
 session_start();
+ob_start();
 
 define("SITEURL","http://localhost/Food_Order(ecommerce)/");
 define('HOST','localhost');
