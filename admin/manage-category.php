@@ -31,7 +31,13 @@
             unset(  $_SESSION['category-updated'] );
         }
 
+        if (isset(     $_SESSION['update-error']  )) {
+            echo (    $_SESSION['update-error']  );
+            unset(      $_SESSION['update-error']  );
+        }
+
       
+    
        
         ?><br><br><br>
         <a href="<?php echo SITEURL; ?>admin/add-category.php" class="btn-primary">Add Category</a>

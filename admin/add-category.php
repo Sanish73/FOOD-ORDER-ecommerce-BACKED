@@ -134,6 +134,9 @@ if (isset($_POST['submit'])) {
                 if ($upload == false) {
                     $_SESSION['upload-error'] = 'Failed To Upload';
                     header('location' . SITEURL . 'admin/add-category.php');
+
+                    // stop the process 
+                    die();
                 }
             }
         }
