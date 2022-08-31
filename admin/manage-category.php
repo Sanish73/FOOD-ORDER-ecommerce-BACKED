@@ -21,6 +21,12 @@
             echo ( $_SESSION['delete-category']);
             unset( $_SESSION['delete-category']);
         }
+        if (isset(  $_SESSION['no-category-found'] )) {
+            echo (  $_SESSION['no-category-found'] );
+            unset( $_SESSION['no-category-found'] );
+        }
+
+       
         ?><br><br><br>
         <a href="<?php echo SITEURL; ?>admin/add-category.php" class="btn-primary">Add Category</a>
         <br><br><br>

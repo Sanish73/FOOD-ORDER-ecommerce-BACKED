@@ -21,19 +21,15 @@
 
             if ($count == 1) {
                 // echo "there exist";
-              $row = mysqli_fetch_assoc($qry);
+                $row = mysqli_fetch_assoc($qry);
 
-              $title = $row['title'];
-              $current_image = $row['img_name'];
-              $fearured = $row['featured'];
-              $active = $row['active'];
-              
-
-              
+                $title = $row['title'];
+                $current_image = $row['img_name'];
+                $fearured = $row['featured'];
+                $active = $row['active'];
             } else {
                 $_SESSION['no-category-found'] = "No Category Found!!!";
                 header('location:' . SITEURL . 'admin/update-category.php');
-
             }
         } else {
             header('location:' . SITEURL . 'admin/manage-category.php');
@@ -53,7 +49,16 @@
                 <tr>
                     <td>Current Image:</td>
                     <td>
-                            <a href="<?php echo SITEURL ?>images/category/<?php echo $current_image;?>"><img src="<?php echo SITEURL ?>images/category/<?php echo $current_image;?>" alt="" width="100px"></a>
+                        <?php if ($current_image != "") {
+                        ?>
+                            <a href="<?php echo SITEURL ?>images/category/<?php echo $current_image; ?>"><img src="<?php echo SITEURL ?>images/category/<?php echo $current_image; ?>" alt="" width="100px"></a>
+                        <?php
+                        }else{
+                            echo "image Not Found";
+                        }
+
+                        ?>
+
                     </td>
                 </tr>
 
@@ -68,8 +73,9 @@
                 <tr>
                     <td>Featured:</td>
                     <td>
-                        <input type="radio" name="featured" value="no">No
-                        <input type="radio" name="featured" value="yes">Yes
+                        <!-- we can check the radio buttn by writting checked in inside  -->
+                        <input <?php if($fearured=="No"){echo ("checkedd");} ?> type="radio" name="featured" value="no">No 
+                        <input  <?php if($fearured=="No"){echo ("checkedd");} ?> type="radio" name="featured" value="yes">Yes
                     </td>
                 </tr>
 
