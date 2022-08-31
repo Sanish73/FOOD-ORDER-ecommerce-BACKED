@@ -186,9 +186,7 @@ include('partials/login-check.php');
 
                             header('location' . SITEURL . 'admin/add-food.php');
                             die();
-                            // header('location' . SITEURL . 'admin/add-food.php');
-                            // die();
-
+                           
                         }
 
 
