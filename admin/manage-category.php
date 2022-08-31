@@ -26,6 +26,12 @@
             unset( $_SESSION['no-category-found'] );
         }
 
+        if (isset(  $_SESSION['category-updated'] )) {
+            echo (   $_SESSION['category-updated'] );
+            unset(  $_SESSION['category-updated'] );
+        }
+
+      
        
         ?><br><br><br>
         <a href="<?php echo SITEURL; ?>admin/add-category.php" class="btn-primary">Add Category</a>

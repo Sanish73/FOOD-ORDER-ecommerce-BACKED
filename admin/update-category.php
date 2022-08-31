@@ -75,10 +75,10 @@
                     <td>Featured:</td>
                     <td>
                         <!-- we can check the radio buttn by writting checked in inside  -->
-                        <input <?php if ($fearured == "Yes") {
+                        <input <?php if($fearured == "yes") {
                                     echo "checked";
                                 } ?> type="radio" name="featured" value="yes">Yes
-                        <input <?php if ($fearured == "No") {
+                        <input <?php if($fearured == "no") {
                                     echo "checked";
                                 } ?> type="radio" name="featured" value="no">No
                     </td>
@@ -87,10 +87,10 @@
                 <tr>
                     <td>Active:</td>
                     <td>
-                        <input <?php if ($active == "Yes") {
+                        <input <?php if($active == "yes") {
                                     echo "checked";
                                 } ?> type="radio" name="active" value="yes">Yes
-                        <input <?php if ($active == "No") {
+                        <input <?php if($active == "no") {
                                     echo "checked";
                                 } ?> type="radio" name="active" value="no">No
                     </td>
@@ -128,6 +128,14 @@ if (isset($_POST['submit'])) {
     ";
 
     $qry1 = mysqli_query($conn , $sql1);
+
+    if($qry1){
+        $_SESSION['category-updated'] = 'Sucessfully Updated';
+        header('location:'.SITEURL.'admin/manage-category.php');
+
+    }else{
+
+    }
 
     
 }
