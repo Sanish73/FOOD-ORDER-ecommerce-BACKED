@@ -188,8 +188,6 @@ include('partials/login-check.php');
                             die();
                            
                         }
-
-
                         /////////////////       // check whether radio buttin for featured and active are checked or not 
                         if (isset($_POST['featured'])) {
                             $featured = $_POST['featured'];
