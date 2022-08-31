@@ -27,7 +27,6 @@
                 $current_image = $row['img_name'];
                 $fearured = $row['featured'];
                 $active = $row['active'];
-                
             } else {
                 $_SESSION['no-category-found'] = "No Category Found!!!";
                 header('location:' . SITEURL . 'admin/update-category.php');
@@ -55,7 +54,7 @@
                         ?>
                             <a href="<?php echo SITEURL ?>images/category/<?php echo $current_image; ?>"><img src="<?php echo SITEURL ?>images/category/<?php echo $current_image; ?>" alt="" width="100px"></a>
                         <?php
-                        }else{
+                        } else {
                             echo "image Not Found";
                         }
 
@@ -76,21 +75,31 @@
                     <td>Featured:</td>
                     <td>
                         <!-- we can check the radio buttn by writting checked in inside  -->
-                        <input <?php if($fearured=="Yes"){echo "checked";}?> type="radio" name="featured" value="yes">Yes
-                        <input  <?php if($fearured=="No"){echo "checked";} ?> type="radio" name="featured" value="no">No
+                        <input <?php if ($fearured == "Yes") {
+                                    echo "checked";
+                                } ?> type="radio" name="featured" value="yes">Yes
+                        <input <?php if ($fearured == "No") {
+                                    echo "checked";
+                                } ?> type="radio" name="featured" value="no">No
                     </td>
                 </tr>
 
                 <tr>
-                    <td>Action:</td>
+                    <td>Active:</td>
                     <td>
-                        <input <?php if($active=="Yes"){echo "checked";}?> type="radio" name="action" value="yes">Yes
-                        <input  <?php if($active=="No"){echo "checked";}?> type="radio" name="action" value="no">No
+                        <input <?php if ($active == "Yes") {
+                                    echo "checked";
+                                } ?> type="radio" name="active" value="yes">Yes
+                        <input <?php if ($active == "No") {
+                                    echo "checked";
+                                } ?> type="radio" name="active" value="no">No
                     </td>
                 </tr>
 
                 <tr>
                     <td>
+                        <input type="hidden" name="id" value="<?php echo $id; ?>">
+                        <input type="hidden" name="image" value="<?php echo $current_image; ?>">
                         <input type="submit" name="submit" value="Update Category" class="btn-secondary">
                     </td>
                 </tr>
@@ -99,6 +108,31 @@
         </form>
     </div>
 </div>
+
+<!-- ---------------php open----------------- -->
+<?php
+
+if (isset($_POST['submit'])) {
+    $ID = $_POST['id'];
+    $TITLE  = $_POST['title'];
+    $IMAGE = $_POST['image'];
+    $FEATURED = $_POST['featured'];
+    $ACTIVE = $_POST['active'];
+
+    $sql1 = "UPDATE tbl_category SET
+            title='$TITLE' , 
+            img_name = '$IMAGE',
+            featured = '$FEATURED',
+            active = '$ACTIVE'  WHERE 
+            id = '$id'
+    ";
+
+    $qry1 = mysqli_query($conn , $sql1);
+
+    
+}
+
+?>
 
 
 <!-- footer section starts -->
