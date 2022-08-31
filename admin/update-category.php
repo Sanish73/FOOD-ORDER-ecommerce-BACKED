@@ -119,13 +119,18 @@ if (isset($_POST['submit'])) {
     $FEATURED = $_POST['featured'];
     $ACTIVE = $_POST['active'];
 
+
+
     //checking images is empty or not
 
     if (isset($_FILES['image']['name'])) {
         $imageName = $_FILES['image']['name'];
 
+
         //here we have to check whether the image is selected or cancled if cancled then the image name would be blank so we have to check
         if ($imageName != "") {
+
+
             //image name is available
             //uploading the new image and deleteing the old image
 
@@ -134,12 +139,13 @@ if (isset($_POST['submit'])) {
             //getting the extension of out image like(img,jpg,png) eg'food.jpg'
             //now using explode seperates the image name and extension llike(food) and jpg seperately
             //ext means extension
-            $ext = end(explode('.', $imageName));
+            $ext = explode('.', $imageName);
+            $ext2 = end($ext);
             // echo $ext;
 
             // now renaming randomly using $ext and adding functoin
-            $imageName = "Food_Category_" . rand(000, 999) . '.' . $ext;
-            // echo $image_name;
+            $imageName = "Food_Category_" . rand(000, 999) . '.' . $ext2;
+            // echo $imageName;
 
             $source_path = $_FILES['image']['tmp_name'];
             $destination_path = "../images/category/" . $imageName;
@@ -158,18 +164,19 @@ if (isset($_POST['submit'])) {
             }
 
 
-            //now removing th current image
-            $remove_path  = "../images/category/".$current_image;
+            if ($current_image != "") {
+                //now removing th current image
+                $remove_path  = "../images/category/" . $current_image;
 
-            $remove = unlink($remove_path);
+                $remove = unlink($remove_path);
 
-            // checking the imae is removed or not 
-            if($remove){
-                echo "Removied";
-            }else{
-                echo "   n ot Removied";
+                // checking the imae is removed or not 
+                if ($remove) {
+                    echo "Removied";
+                } else {
+                    echo "   n ot Removied";
+                }
             }
-
         } else {
             // empty 
             $imageName = $current_image;
@@ -180,7 +187,7 @@ if (isset($_POST['submit'])) {
 
     $sql1 = "UPDATE tbl_category SET
             title='$TITLE' , 
-            img_name = '$IMAGE',
+            img_name = '$imageName',
             featured = '$FEATURED',
             active = '$ACTIVE'  WHERE 
             id = '$id'
