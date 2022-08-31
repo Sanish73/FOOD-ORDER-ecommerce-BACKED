@@ -52,9 +52,7 @@
                 <tr>
                     <td>Current Image:</td>
                     <td>
-                        <!-- image will be displayed here -->
-                        <!-- <input type="text" name="username" value="<?php //echo $UserName; 
-                                                                        ?>"> -->
+                            <a href="<?php echo SITEURL ?>images/category/<?php echo $current_image;?>"><img src="<?php echo SITEURL ?>images/category/<?php echo $current_image;?>" alt="" width="100px"></a>
                     </td>
                 </tr>
 
