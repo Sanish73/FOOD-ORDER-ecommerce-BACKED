@@ -31,7 +31,8 @@
 
               
             } else {
-                header('location:' . SITEURL . 'admin/manage-category.php');
+                $_SESSION['no-category-found'] = "No Category Found!!!";
+                header('location:' . SITEURL . 'admin/update-category.php');
 
             }
         } else {
