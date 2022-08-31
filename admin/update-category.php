@@ -27,6 +27,7 @@
                 $current_image = $row['img_name'];
                 $fearured = $row['featured'];
                 $active = $row['active'];
+                
             } else {
                 $_SESSION['no-category-found'] = "No Category Found!!!";
                 header('location:' . SITEURL . 'admin/update-category.php');
@@ -35,6 +36,7 @@
             header('location:' . SITEURL . 'admin/manage-category.php');
         }
         ?>
+
         <!-- ------------------php closed------------------------------ -->
 
         <form action="" method="POST" enctype="multipart/form-data">
@@ -74,16 +76,16 @@
                     <td>Featured:</td>
                     <td>
                         <!-- we can check the radio buttn by writting checked in inside  -->
-                        <input <?php if($fearured=="No"){echo ("checkedd");} ?> type="radio" name="featured" value="no">No 
-                        <input  <?php if($fearured=="No"){echo ("checkedd");} ?> type="radio" name="featured" value="yes">Yes
+                        <input <?php if($fearured=="Yes"){echo "checked";}?> type="radio" name="featured" value="yes">Yes
+                        <input  <?php if($fearured=="No"){echo "checked";} ?> type="radio" name="featured" value="no">No
                     </td>
                 </tr>
 
                 <tr>
                     <td>Action:</td>
                     <td>
-                        <input type="radio" name="action" value="no">No
-                        <input type="radio" name="action" value="yes">Yes
+                        <input <?php if($active=="Yes"){echo "checked";}?> type="radio" name="action" value="yes">Yes
+                        <input  <?php if($active=="No"){echo "checked";}?> type="radio" name="action" value="no">No
                     </td>
                 </tr>
 
