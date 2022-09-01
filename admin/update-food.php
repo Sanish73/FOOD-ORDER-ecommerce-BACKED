@@ -32,11 +32,11 @@
                 $featured = $row['features'];
                 $active = $row['active'];
             } else {
-                $_SESSION['no-category-found'] = "No Category Found!!!";
-                header('location:' . SITEURL . 'admin/update-category.php');
+                $_SESSION['no-food-found'] = "No Category Found!!!";
+                header('location:' . SITEURL . 'admin/update-food.php');
             }
         } else {
-            header('location:' . SITEURL . 'admin/manage-category.php');
+            header('location:' . SITEURL . 'admin/manage-food.php');
         }
         ?>
 
@@ -102,7 +102,7 @@
                                 echo " <option value='0'>Category Not Available</option>";
                             }
                             ?>
-                            
+
                         </select>
                         <!-- <input type="number" name="title" value="<?php echo $price; ?>"> -->
                     </td>
