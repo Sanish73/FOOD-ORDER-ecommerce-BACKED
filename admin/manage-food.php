@@ -20,6 +20,15 @@
             echo(   $_SESSION['delete-food']);
             unset(   $_SESSION['delete-food']);
         }
+        if (isset(  $_SESSION['food-updated'] )) {
+            echo (   $_SESSION['food-updated'] );
+            unset(  $_SESSION['food-updated'] );
+        }
+
+        if (isset(     $_SESSION['update-error']  )) {
+            echo (    $_SESSION['update-error']  );
+            unset(      $_SESSION['update-error']  );
+        }
         ?>
         <br><br><br>
         <a href="<?php echo SITEURL; ?>admin/add-food.php" class="btn-primary">Add Food</a>

@@ -197,7 +197,7 @@ if (isset($_POST['submit'])) {
             // echo $imageName;
 
             $source_path = $_FILES['image']['tmp_name'];
-            $destination_path = "../images/category/" . $imageName;
+            $destination_path = "../images/food/" . $imageName;
 
             // now upload the images 
             $upload = move_uploaded_file($source_path, $destination_path);
@@ -206,7 +206,7 @@ if (isset($_POST['submit'])) {
             // if the image is not uploaded then we will stop the porcess and redirect with error message
             if ($upload == false) {
                 $_SESSION['update-error'] = 'Failed To Upload';
-                header('location' . SITEURL . 'admin/manage-category.php');
+                header('location' . SITEURL . 'admin/manage-food.php');
 
                 // stop the process 
                 die();
@@ -247,7 +247,7 @@ if (isset($_POST['submit'])) {
     $qry1 = mysqli_query($conn, $sql1);
 
     if ($qry1) {
-        $_SESSION['category-updated'] = 'Sucessfully Updated';
+        $_SESSION['food-updated'] = 'Sucessfully Updated';
         header('location:' . SITEURL . 'admin/manage-food.php');
     } else {
         echo "cannot update the Food!!";
