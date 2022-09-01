@@ -24,13 +24,15 @@ if (isset($_GET['id']) && isset($_GET['image_name'])) {
     $sql = "DELETE FROM tbl_food where id='$ID'";
     $qry = mysqli_query($conn, $sql);
 
-    // if ($qry) {
-    //     $_SESSION['delete-food'] = $TITLE . "-  Deleted Succesfully";
-    //     header('location:' . SITEURL . 'admin/manage-food.php');
-    // } else {
-    //     $_SESSION['delete-food'] = "Failed to delete";
-    //     header('location:' . SITEURL . 'admin/manage-food.php');
-    // }
+    if ($qry) {
+        $_SESSION['delete-food'] = $TITLE . "-  Deleted Succesfully";
+        header('location:' . SITEURL . 'admin/manage-food.php');
+    } else {
+        $_SESSION['delete-food'] = "Failed to delete";
+        header('location:' . SITEURL . 'admin/manage-food.php');
+    }
+}else{
+    echo "untuthorized user";
 }
 
 
