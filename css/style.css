@@ -277,4 +277,49 @@ h3 {
         }
     }
 
+
+
+
+}
+
+
+
+/* ---------------order.php---------------  */
+
+.order-form{
+    padding: 2% 0;
+}
+.food-search .order-fieldset{
+    /* background-color: red; */
+    /* width: 10px; */
+    margin: 0 auto;
+    width: 35%;
+    border-radius: 8px;
+    border: 1px solid  white ;
+    padding:8px;
+}
+
+.order-menu-box{
+    /* padding: 10%; */
+    /* border: 1px solid  white ; */
+    background-color: transparent;
+    width: 90%;
+}
+
+.order-menu-img{
+    margin-top: -20px;
+    /* width: ; */
+}
+
+.order-menu-desc{
+    margin-top: -5px;
+    /* padding: 0px; */
+}
+.order-menu-desc input[type='number']{
+    width: 100%;
+    border: none;
+    border-radius: 1px;
+    /* padding: 0px; */
+    height: 25px;
+    margin-top: -20px;
 }
