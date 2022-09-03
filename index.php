@@ -26,7 +26,19 @@
 
         <?php
 
-//creating sql queries
+        //creating sql queries
+        $sql = "SELECT * FROM tbl_category";
+
+        $qry = mysqli_query($conn, $sql);
+
+        $count = mysqli_num_rows($qry);
+
+        if ($count > 0) {
+            while ($row = mysqli_fetch_assoc($qry)) {
+            }
+        } else {
+            echo ("Categories not Availabel");
+        }
         ?>
         <a href="#">
             <div class="box-3 float-container">
