@@ -1,5 +1,5 @@
-<?php include('../config/constant.php');
-include('login-check.php');
+<?php include('config/constant.php');
+// include('login-check.php');
 ?>
 
 
@@ -27,13 +27,13 @@ include('login-check.php');
             <div class="menu text-right">
                 <ul>
                     <li>
-                        <a href="#">Home</a>
+                        <a href="<?php echo SITEURL; ?>">Home</a>
                     </li>
                     <li>
-                        <a href="#">About</a>
+                        <a href="<?php echo SITEURL; ?>categories.php">Categories</a>
                     </li>
                     <li>
-                        <a href="#">Food</a>
+                        <a href="<?php echo SITEURL; ?>foods.php">Food</a>
                     </li>
                     <li>
                         <a href="#">Contact</a>

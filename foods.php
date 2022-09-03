@@ -1,6 +1,18 @@
 <?php include('partials-Fronts/menu.php') ?>
 
 
+<section class="food-search text-center">
+        <div class="container">
+            <!-- <h1>Food search</h1> -->
+            <form action="">
+                <input type="search" name="search" placeholder="Search For Food">
+                <input type="submit" name="submit" value="Search" class="btn btn-primary">
+            </form>
+
+        </div>
+
+    </section>
+
     <!-- -----------------food-menu starts ------------------------  -->
     <section class="food-menu">
         <div class="container">
