@@ -35,17 +35,36 @@
 
         if ($count > 0) {
             while ($row = mysqli_fetch_assoc($qry)) {
+
+                $id = $row['id'];
+                $title = $row['title'];
+                $image_name  = $row['img_name'];
+        ?>
+                <a href="#">
+                    <div class="box-3 float-container">
+
+                        <?php
+                        if ($image_name == "") {
+                            echo ("No image found");
+                        } else {
+                        ?>
+                        
+                            <img src="<?php echo SITEURL; ?>images/category/<?php echo $image_name ?>" alt="Pizza" class="img-responsive img-curve">
+                        <?php
+
+                        }
+                        ?>
+
+                        <h3 class="float-text text-white">Pizza</h3>
+                    </div>
+                </a>
+        <?php
             }
         } else {
             echo ("Categories not Availabel");
         }
         ?>
-        <a href="#">
-            <div class="box-3 float-container">
-                <img src="images/pizza.jpg" alt="Pizza" class="img-responsive img-curve">
-                <h3 class="float-text text-white">Pizza</h3>
-            </div>
-        </a>
+
 
 
         <!-- <a href="#">
