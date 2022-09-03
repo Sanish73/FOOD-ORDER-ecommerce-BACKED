@@ -27,7 +27,7 @@
         <?php
 
         //creating sql queries
-        $sql = "SELECT * FROM tbl_category";
+        $sql = "SELECT * FROM tbl_category WHERE featured = 'yes' AND active= 'yes' LIMIT 3"; //this keyword only display 3 row form data base
 
         $qry = mysqli_query($conn, $sql);
 
@@ -55,7 +55,7 @@
                         }
                         ?>
 
-                        <h3 class="float-text text-white">Pizza</h3>
+                        <h3 class="float-text text-white"><?php  echo $title?></h3>
                     </div>
                 </a>
         <?php
